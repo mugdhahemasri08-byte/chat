@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gemini Frontend</title>
+</head>
+<body>
+  <h2>Ask Gemini</h2>
+  <textarea id="prompt" placeholder="Type something..."></textarea>
+  <br><br>
+  <button onclick="sendPrompt()">Send</button>
+
+  <h3>Response:</h3>
+  <pre id="response"></pre>
+
+  <script>
+    async function sendPrompt() {
+      const prompt = document.getElementById("prompt").value;
+
+      const res = await fetch("https://your-backend.onrender.com/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await res.json();
+      document.getElementById("response").textContent = data.response;
+    }
+  </script>
+</body>
+</html>
