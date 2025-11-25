@@ -16,7 +16,7 @@
     async function sendPrompt() {
       const prompt = document.getElementById("prompt").value;
 
-      const res = await fetch("https://your-backend.onrender.com/api/ask", {
+      const res = await fetch("https://chat-backend-n8t7.onrender.com//api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt })
